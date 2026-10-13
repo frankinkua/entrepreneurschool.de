@@ -23,12 +23,24 @@
 <body>
     <div class="container">
         <header role="banner">
-            <h1>Entrepreneur School</h1>
-            <p class="intro">
-                Der pragmatische Mini-Kurs für alle, die in Deutschland zum ersten Mal gründen wollen.
-                Ohne Buzzwords, ohne Bullshit. 8 kompakte Lektionen, die du in deinem eigenen Tempo durcharbeiten kannst.
-                Dein Fortschritt wird lokal in deinem Browser gespeichert.
-            </p>
+            <nav class="main-nav" aria-label="Hauptnavigation">
+                <ul>
+                    <li><a href="index.html">Start</a></li>
+                    <li><a href="impressum.html">Impressum</a></li>
+                    <li><a href="datenschutz.html">Datenschutz</a></li>
+                </ul>
+            </nav>
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Entrepreneur School</h1>
+                    <p class="intro">
+                        Der pragmatische Mini-Kurs für alle, die in Deutschland zum ersten Mal gründen wollen.
+                        Ohne Buzzwords, ohne Bullshit. 8 kompakte Lektionen, die du in deinem eigenen Tempo durcharbeiten kannst.
+                        Dein Fortschritt wird lokal in deinem Browser gespeichert.
+                    </p>
+                    <a href="#course-content" class="btn-primary">Kurs starten</a>
+                </div>
+            </div>
         </header>
 
         <main role="main">
@@ -41,22 +53,36 @@
                 <div class="progress-bar-bg" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Fortschrittsbalken">
                     <div class="progress-bar-fill" id="progress-bar-fill"></div>
                 </div>
+
+                <div id="completion-badge" class="completion-badge" hidden>
+                    <h3>🎉 Herzlichen Glückwunsch! 🎉</h3>
+                    <p>Du hast alle Lektionen der Entrepreneur School abgeschlossen.</p>
+                    <button id="reset-progress" class="btn-reset">Fortschritt zurücksetzen</button>
+                </div>
             </section>
 
-            <div class="course-content">
+            <div class="course-content" id="course-content">
                 <!-- Lektion 1 -->
                 <article class="lesson" id="lesson-1">
                     <header class="lesson-header" tabindex="0" role="button" aria-expanded="false" aria-controls="content-1">
-                        <h2>1. Die Idee validieren</h2>
+                        <div class="lesson-header-left">
+                            <h2>1. Die Idee validieren</h2>
+                            <span class="lesson-badge" aria-hidden="true">✓</span>
+                        </div>
                         <button class="lesson-toggle" aria-label="Lektion aufklappen/zuklappen" tabindex="-1">▼</button>
                     </header>
-                    <div class="lesson-content" id="content-1" hidden>
-                        <p>Viele Gründer:innen verlieben sich in ihre Idee und bauen monatelang im stillen Kämmerlein ein Produkt, das am Ende niemand haben will. Der wichtigste erste Schritt ist nicht der Businessplan, sondern die Überprüfung, ob dein Problem überhaupt existiert und ob deine Zielgruppe bereit ist, für eine Lösung zu bezahlen.</p>
+                    <div class="lesson-content-wrapper">
+                        <div class="lesson-content" id="content-1">
+                            <div class="lesson-content-inner">
+<p>Viele Gründer:innen verlieben sich in ihre Idee und bauen monatelang im stillen Kämmerlein ein Produkt, das am Ende niemand haben will. Der wichtigste erste Schritt ist nicht der Businessplan, sondern die Überprüfung, ob dein Problem überhaupt existiert und ob deine Zielgruppe bereit ist, für eine Lösung zu bezahlen.</p>
                         <p>Sprich mit potenziellen Kund:innen, bevor du auch nur eine Zeile Code schreibst oder ein Produkt herstellst. Stelle offene Fragen nach ihren aktuellen Herausforderungen, anstatt direkt deine Lösung zu pitchen ("The Mom Test").</p>
 
                         <div class="takeaway">
                             <strong>Takeaway:</strong> Baue nichts, bevor du nicht mit echten Menschen über ihr Problem gesprochen hast.
+
+                            </div>
                         </div>
+                    </div>
 
                         <div class="exercise">
                             <h3>Deine Aufgabe</h3>
@@ -73,16 +99,24 @@
                 <!-- Lektion 2 -->
                 <article class="lesson" id="lesson-2">
                     <header class="lesson-header" tabindex="0" role="button" aria-expanded="false" aria-controls="content-2">
-                        <h2>2. Deine Zielgruppe finden</h2>
+                        <div class="lesson-header-left">
+                            <h2>2. Deine Zielgruppe finden</h2>
+                            <span class="lesson-badge" aria-hidden="true">✓</span>
+                        </div>
                         <button class="lesson-toggle" aria-label="Lektion aufklappen/zuklappen" tabindex="-1">▼</button>
                     </header>
-                    <div class="lesson-content" id="content-2" hidden>
-                        <p>"Mein Produkt ist für alle" ist der sicherste Weg ins Scheitern. Wenn du versuchst, alle anzusprechen, sprichst du niemanden richtig an. Am Anfang brauchst du eine sehr spitze, klar definierte Zielgruppe (Nische).</p>
+                    <div class="lesson-content-wrapper">
+                        <div class="lesson-content" id="content-2">
+                            <div class="lesson-content-inner">
+<p>"Mein Produkt ist für alle" ist der sicherste Weg ins Scheitern. Wenn du versuchst, alle anzusprechen, sprichst du niemanden richtig an. Am Anfang brauchst du eine sehr spitze, klar definierte Zielgruppe (Nische).</p>
                         <p>Definiere deinen idealen Kunden so genau wie möglich: Was machen sie beruflich? Welche Werte haben sie? Wo halten sie sich (online und offline) auf? Welche Sprache sprechen sie? Nur wenn du das weißt, kannst du gezieltes Marketing betreiben und ein Produkt entwickeln, das genau für sie gemacht ist.</p>
 
                         <div class="takeaway">
                             <strong>Takeaway:</strong> Eine Nische zu dominieren ist einfacher, als den Massenmarkt zu erobern.
+
+                            </div>
                         </div>
+                    </div>
 
                         <div class="exercise">
                             <h3>Deine Aufgabe</h3>
@@ -99,16 +133,24 @@
                 <!-- Lektion 3 -->
                 <article class="lesson" id="lesson-3">
                     <header class="lesson-header" tabindex="0" role="button" aria-expanded="false" aria-controls="content-3">
-                        <h2>3. Business Model Canvas</h2>
+                        <div class="lesson-header-left">
+                            <h2>3. Business Model Canvas</h2>
+                            <span class="lesson-badge" aria-hidden="true">✓</span>
+                        </div>
                         <button class="lesson-toggle" aria-label="Lektion aufklappen/zuklappen" tabindex="-1">▼</button>
                     </header>
-                    <div class="lesson-content" id="content-3" hidden>
-                        <p>Vergiss den 50-seitigen Businessplan, den sowieso niemand liest. Nutze stattdessen das Business Model Canvas (BMC). Es zwingt dich, dein gesamtes Geschäftsmodell auf einer einzigen Seite darzustellen.</p>
+                    <div class="lesson-content-wrapper">
+                        <div class="lesson-content" id="content-3">
+                            <div class="lesson-content-inner">
+<p>Vergiss den 50-seitigen Businessplan, den sowieso niemand liest. Nutze stattdessen das Business Model Canvas (BMC). Es zwingt dich, dein gesamtes Geschäftsmodell auf einer einzigen Seite darzustellen.</p>
                         <p>Das BMC besteht aus 9 Bausteinen: Kundensegmente, Wertangebote, Kanäle, Kundenbeziehungen, Einnahmequellen, Schlüsselressourcen, Schlüsselaktivitäten, Schlüsselpartnerschaften und Kostenstruktur. Es ist ein lebendes Dokument, das du anpasst, sobald du neue Erkenntnisse (z.B. aus Lektion 1) sammelst.</p>
 
                         <div class="takeaway">
                             <strong>Takeaway:</strong> Ein Geschäftsmodell ist erst dann gut, wenn du es auf einem Bierdeckel (oder Canvas) erklären kannst.
+
+                            </div>
                         </div>
+                    </div>
 
                         <div class="exercise">
                             <h3>Deine Aufgabe</h3>
@@ -125,11 +167,16 @@
                 <!-- Lektion 4 -->
                 <article class="lesson" id="lesson-4">
                     <header class="lesson-header" tabindex="0" role="button" aria-expanded="false" aria-controls="content-4">
-                        <h2>4. Rechtsformen (GmbH, UG, Einzelunternehmen)</h2>
+                        <div class="lesson-header-left">
+                            <h2>4. Rechtsformen (GmbH, UG, Einzelunternehmen)</h2>
+                            <span class="lesson-badge" aria-hidden="true">✓</span>
+                        </div>
                         <button class="lesson-toggle" aria-label="Lektion aufklappen/zuklappen" tabindex="-1">▼</button>
                     </header>
-                    <div class="lesson-content" id="content-4" hidden>
-                        <p>In Deutschland musst du dich für eine Rechtsform entscheiden. Die gängigsten für Gründer:innen sind:</p>
+                    <div class="lesson-content-wrapper">
+                        <div class="lesson-content" id="content-4">
+                            <div class="lesson-content-inner">
+<p>In Deutschland musst du dich für eine Rechtsform entscheiden. Die gängigsten für Gründer:innen sind:</p>
                         <ul>
                             <li><strong>Einzelunternehmen:</strong> Am einfachsten und günstigsten zu gründen (Gewerbeanmeldung reicht oft). Aber: Du haftest mit deinem privaten Vermögen. Gut für Freelancer oder risikoarme Side-Hustles.</li>
                             <li><strong>UG (haftungsbeschränkt):</strong> Die "Mini-GmbH". Gründung ab 1€ Stammkapital (praktisch eher ~1.000€ für Notar/Anwalt). Haftung ist aufs Firmenvermögen beschränkt. Gut, wenn Haftungsrisiken bestehen, aber das Kapital für eine GmbH fehlt.</li>
@@ -139,7 +186,10 @@
 
                         <div class="takeaway">
                             <strong>Takeaway:</strong> Wähle die Rechtsform nach deinem persönlichen Haftungsrisiko und vorhandenem Kapital.
+
+                            </div>
                         </div>
+                    </div>
 
                         <div class="exercise">
                             <h3>Deine Aufgabe</h3>
@@ -156,16 +206,24 @@
                 <!-- Lektion 5 -->
                 <article class="lesson" id="lesson-5">
                     <header class="lesson-header" tabindex="0" role="button" aria-expanded="false" aria-controls="content-5">
-                        <h2>5. Pricing: Was ist dein Angebot wert?</h2>
+                        <div class="lesson-header-left">
+                            <h2>5. Pricing: Was ist dein Angebot wert?</h2>
+                            <span class="lesson-badge" aria-hidden="true">✓</span>
+                        </div>
                         <button class="lesson-toggle" aria-label="Lektion aufklappen/zuklappen" tabindex="-1">▼</button>
                     </header>
-                    <div class="lesson-content" id="content-5" hidden>
-                        <p>Einer der häufigsten Fehler von Erstgründer:innen ist es, zu billig zu sein. Wenn du über den Preis konkurrierst, verlierst du gegen die Großen. Du musst über den Wert (Value) konkurrieren.</p>
+                    <div class="lesson-content-wrapper">
+                        <div class="lesson-content" id="content-5">
+                            <div class="lesson-content-inner">
+<p>Einer der häufigsten Fehler von Erstgründer:innen ist es, zu billig zu sein. Wenn du über den Preis konkurrierst, verlierst du gegen die Großen. Du musst über den Wert (Value) konkurrieren.</p>
                         <p>Kalkuliere nicht nur "Kosten + Marge" (Cost-Plus-Pricing), sondern überlege: Welchen Wert stiftet mein Produkt beim Kunden? (Value-Based-Pricing). Wenn du einem B2B-Kunden hilfst, 10.000€ im Jahr zu sparen, ist ein Preis von 1.000€ ein absolutes Schnäppchen – auch wenn dich die Erstellung nur 50€ kostet.</p>
 
                         <div class="takeaway">
                             <strong>Takeaway:</strong> Verkaufe den Wert, nicht deine Zeit oder deine Kosten. Und im Zweifel: Verdopple deinen Preis.
+
+                            </div>
                         </div>
+                    </div>
 
                         <div class="exercise">
                             <h3>Deine Aufgabe</h3>
@@ -182,16 +240,24 @@
                 <!-- Lektion 6 -->
                 <article class="lesson" id="lesson-6">
                     <header class="lesson-header" tabindex="0" role="button" aria-expanded="false" aria-controls="content-6">
-                        <h2>6. Der erste Verkauf (Traction)</h2>
+                        <div class="lesson-header-left">
+                            <h2>6. Der erste Verkauf (Traction)</h2>
+                            <span class="lesson-badge" aria-hidden="true">✓</span>
+                        </div>
                         <button class="lesson-toggle" aria-label="Lektion aufklappen/zuklappen" tabindex="-1">▼</button>
                     </header>
-                    <div class="lesson-content" id="content-6" hidden>
-                        <p>Ein Business ohne zahlende Kunden ist ein teures Hobby. Dein primäres Ziel in der Anfangsphase ist es, herauszufinden, wie du reproduzierbar Kunden gewinnst (Traction).</p>
+                    <div class="lesson-content-wrapper">
+                        <div class="lesson-content" id="content-6">
+                            <div class="lesson-content-inner">
+<p>Ein Business ohne zahlende Kunden ist ein teures Hobby. Dein primäres Ziel in der Anfangsphase ist es, herauszufinden, wie du reproduzierbar Kunden gewinnst (Traction).</p>
                         <p>Verlass dich anfangs nicht auf passive Methoden wie SEO oder Social Media Posts, die Zeit brauchen. Mach Dinge, die nicht skalieren ("Do things that don't scale" - Paul Graham). Gehe direkt auf Leute zu (Cold Outreach), besuche Netzwerk-Events, schreibe direkte Nachrichten. Dein Ziel sind die ersten 10 zahlenden Kunden, egal wie manuell der Prozess ist.</p>
 
                         <div class="takeaway">
                             <strong>Takeaway:</strong> Traktion schlägt Perfektion. Der erste Euro Umsatz ist der wichtigste Meilenstein.
+
+                            </div>
                         </div>
+                    </div>
 
                         <div class="exercise">
                             <h3>Deine Aufgabe</h3>
@@ -208,16 +274,24 @@
                 <!-- Lektion 7 -->
                 <article class="lesson" id="lesson-7">
                     <header class="lesson-header" tabindex="0" role="button" aria-expanded="false" aria-controls="content-7">
-                        <h2>7. Finanzierung & Bootstrapping</h2>
+                        <div class="lesson-header-left">
+                            <h2>7. Finanzierung & Bootstrapping</h2>
+                            <span class="lesson-badge" aria-hidden="true">✓</span>
+                        </div>
                         <button class="lesson-toggle" aria-label="Lektion aufklappen/zuklappen" tabindex="-1">▼</button>
                     </header>
-                    <div class="lesson-content" id="content-7" hidden>
-                        <p>Nicht jedes Startup braucht Investoren (Venture Capital). Tatsächlich sind die meisten erfolgreichen Unternehmen aus eigenen Mitteln finanziert (Bootstrapping).</p>
+                    <div class="lesson-content-wrapper">
+                        <div class="lesson-content" id="content-7">
+                            <div class="lesson-content-inner">
+<p>Nicht jedes Startup braucht Investoren (Venture Capital). Tatsächlich sind die meisten erfolgreichen Unternehmen aus eigenen Mitteln finanziert (Bootstrapping).</p>
                         <p>Bootstrapping zwingt dich zur Disziplin. Du gibst nur Geld aus, das du verdienst. Der Fokus liegt von Tag 1 an auf Profitabilität, nicht auf blindem Wachstum. Wenn du Fremdkapital brauchst, prüfe Alternativen wie den Gründungszuschuss der Arbeitsagentur, KfW-Kredite für Gründer oder Förderprogramme in deinem Bundesland.</p>
 
                         <div class="takeaway">
                             <strong>Takeaway:</strong> Das beste Geld ist das deiner Kunden. Vermeide es, zu früh Anteile abzugeben.
+
+                            </div>
                         </div>
+                    </div>
 
                         <div class="exercise">
                             <h3>Deine Aufgabe</h3>
@@ -234,16 +308,24 @@
                 <!-- Lektion 8 -->
                 <article class="lesson" id="lesson-8">
                     <header class="lesson-header" tabindex="0" role="button" aria-expanded="false" aria-controls="content-8">
-                        <h2>8. Der Launch (Just Ship It)</h2>
+                        <div class="lesson-header-left">
+                            <h2>8. Der Launch (Just Ship It)</h2>
+                            <span class="lesson-badge" aria-hidden="true">✓</span>
+                        </div>
                         <button class="lesson-toggle" aria-label="Lektion aufklappen/zuklappen" tabindex="-1">▼</button>
                     </header>
-                    <div class="lesson-content" id="content-8" hidden>
-                        <p>Perfektionismus ist der Feind des Gründens. Wenn dir die erste Version deines Produkts nicht peinlich ist, hast du zu spät gelauncht (Reid Hoffman).</p>
+                    <div class="lesson-content-wrapper">
+                        <div class="lesson-content" id="content-8">
+                            <div class="lesson-content-inner">
+<p>Perfektionismus ist der Feind des Gründens. Wenn dir die erste Version deines Produkts nicht peinlich ist, hast du zu spät gelauncht (Reid Hoffman).</p>
                         <p>Bauen ein MVP (Minimum Viable Product) – die kleinste, einfachste Version deines Produkts, die den Kernnutzen liefert. Präsentiere es der Welt. Sammle Feedback. Verbessere es. Ein Launch ist kein einzelnes magisches Event, sondern ein kontinuierlicher Prozess.</p>
 
                         <div class="takeaway">
                             <strong>Takeaway:</strong> Done is better than perfect. Drück auf "Veröffentlichen".
+
+                            </div>
                         </div>
+                    </div>
 
                         <div class="exercise">
                             <h3>Deine Aufgabe</h3>
@@ -260,7 +342,7 @@
         </main>
 
         <footer role="contentinfo">
-            <p>&copy; Entrepreneur School. Ein kostenloses Bildungsprojekt.</p>
+            <p>&copy; 2026 Entrepreneur School. Ein kostenloses Bildungsprojekt.</p>
             <ul>
                 <li><a href="impressum.html">Impressum</a></li>
                 <li><a href="datenschutz.html">Datenschutz</a></li>

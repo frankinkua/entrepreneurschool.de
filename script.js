@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const checkboxes = document.querySelectorAll('.exercise-checkbox');
   const progressBarFill = document.getElementById('progress-bar-fill');
   const progressText = document.getElementById('progress-text');
+  const completionBadge = document.getElementById('completion-badge');
+  const btnReset = document.getElementById('reset-progress');
 
   // Load progress from localStorage
   const loadProgress = () => {
@@ -64,7 +66,32 @@ document.addEventListener('DOMContentLoaded', () => {
     if (progressContainer) {
         progressContainer.setAttribute('aria-valuenow', percentage);
     }
+
+    if (completionBadge) {
+      if (completedCount === totalLessons && totalLessons > 0) {
+        completionBadge.removeAttribute('hidden');
+      } else {
+        completionBadge.setAttribute('hidden', '');
+      }
+    }
   };
+
+  // Reset Progress
+  const resetProgress = () => {
+    localStorage.removeItem('es_progress');
+    checkboxes.forEach(checkbox => {
+      checkbox.checked = false;
+      const lessonElement = document.getElementById(checkbox.dataset.lesson);
+      if (lessonElement) {
+        lessonElement.classList.remove('is-completed');
+      }
+    });
+    updateProgressUI(0);
+  };
+
+  if (btnReset) {
+    btnReset.addEventListener('click', resetProgress);
+  }
 
   // Toggle lesson content
   const setupLessonToggles = () => {
@@ -78,21 +105,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const toggleLesson = () => {
         const isOpen = lesson.classList.contains('is-open');
 
-        // Close all other lessons (optional accordion style)
-        // lessons.forEach(l => {
-        //   l.classList.remove('is-open');
-        //   l.querySelector('.lesson-toggle').setAttribute('aria-expanded', 'false');
-        //   l.querySelector('.lesson-content').setAttribute('hidden', '');
-        // });
-
         if (isOpen) {
           lesson.classList.remove('is-open');
           toggleBtn.setAttribute('aria-expanded', 'false');
-          content.setAttribute('hidden', '');
         } else {
           lesson.classList.add('is-open');
           toggleBtn.setAttribute('aria-expanded', 'true');
-          content.removeAttribute('hidden');
         }
       };
 
@@ -144,9 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
          if (firstLesson) {
              firstLesson.classList.add('is-open');
              const toggleBtn = firstLesson.querySelector('.lesson-toggle');
-             const content = firstLesson.querySelector('.lesson-content');
              if(toggleBtn) toggleBtn.setAttribute('aria-expanded', 'true');
-             if(content) content.removeAttribute('hidden');
          }
       }
   }
