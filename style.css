@@ -1,0 +1,495 @@
+/* Basic CSS Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body, h1, h2, h3, p, ul, li, figure, figcaption, blockquote, dl, dd {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Custom Properties */
+:root {
+  /* Colors */
+  --color-paper: #fdfbf7;
+  --color-ink: #1a237e; /* Ink Blue */
+  --color-marker: #ff9800; /* Marker Orange */
+  --color-line: #e0e0e0;
+  --color-marker-light: rgba(255, 152, 0, 0.2);
+
+  /* Fonts */
+  --font-body: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-heading: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Marker Felt', 'Permanent Marker', cursive, sans-serif;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+
+  /* Notebook Lines */
+  --line-height: 1.6;
+  --bg-lines: linear-gradient(transparent 95%, var(--color-line) 100%);
+  --bg-size: 100% calc(1rem * var(--line-height));
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-paper: #121212;
+    --color-ink: #90caf9;
+    --color-marker: #ffb74d;
+    --color-line: #333333;
+    --color-marker-light: rgba(255, 183, 77, 0.2);
+  }
+}
+
+/* Base Styles */
+body {
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background-color: var(--color-paper);
+  background-image: var(--bg-lines);
+  background-size: var(--bg-size);
+  line-height: var(--line-height);
+  font-size: 1rem;
+  padding: 0 var(--space-sm);
+  /* Offset background so text sits on the lines */
+  background-position: 0 0.2rem;
+}
+
+/* Focus States for Accessibility */
+:focus-visible {
+  outline: 3px solid var(--color-marker);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Layout */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-xl) 0;
+  background-color: var(--color-paper); /* Ensure text covers lines in some contexts if needed, though usually we let it bleed */
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+  margin-top: var(--space-lg);
+  color: var(--color-ink);
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: -5%;
+  width: 110%;
+  height: 8px;
+  background-color: var(--color-marker);
+  border-radius: 4px;
+  z-index: -1;
+  opacity: 0.8;
+  transform: rotate(-1deg);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  border-bottom: 2px dashed var(--color-marker);
+  padding-bottom: var(--space-xs);
+  display: inline-block;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+p {
+  margin-bottom: var(--space-md);
+}
+
+a {
+  color: var(--color-ink);
+  text-decoration-color: var(--color-marker);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+
+a:hover, a:focus {
+  background-color: var(--color-marker-light);
+  color: var(--color-ink);
+}
+
+/* Header & Footer */
+header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.main-nav {
+  margin-bottom: var(--space-xl);
+}
+
+.main-nav ul {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.main-nav a {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: var(--color-ink);
+  padding: var(--space-xs) var(--space-sm);
+  border: 2px solid transparent;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.main-nav a:hover, .main-nav a:focus {
+  border-color: var(--color-marker);
+  background-color: var(--color-marker-light);
+}
+
+.hero {
+  padding: var(--space-md) 0 var(--space-xl) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.intro {
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: var(--space-lg);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--color-marker-light);
+  padding: var(--space-md);
+  border-radius: 8px;
+  border: 1px solid var(--color-marker);
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: 4px;
+  text-decoration: none;
+  border: 2px solid var(--color-ink);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  box-shadow: 4px 4px 0 var(--color-marker);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--color-marker);
+  color: var(--color-paper);
+  background-color: var(--color-ink);
+}
+
+footer {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 2px solid var(--color-line);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+footer ul {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-top: var(--space-sm);
+}
+
+/* Course Progress */
+.progress-container {
+  margin-bottom: var(--space-lg);
+  padding: var(--space-md);
+  border: 2px solid var(--color-ink);
+  border-radius: 8px;
+  background-color: var(--color-paper);
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-xs);
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 20px;
+  background-color: var(--color-line);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--color-ink);
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--color-marker);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.completion-badge {
+  margin-top: var(--space-md);
+  padding: var(--space-md);
+  background-color: var(--color-marker-light);
+  border: 2px solid var(--color-marker);
+  border-radius: 8px;
+  text-align: center;
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.btn-reset {
+  margin-top: var(--space-sm);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: 4px;
+  cursor: pointer;
+  border: 2px solid var(--color-ink);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-reset:hover {
+  background-color: var(--color-line);
+  transform: translateY(1px);
+}
+
+/* Lesson Cards */
+.lesson {
+  margin-bottom: var(--space-lg);
+  border: 2px solid var(--color-ink);
+  border-radius: 8px;
+  background-color: var(--color-paper);
+  box-shadow: 4px 4px 0 var(--color-marker-light);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.lesson:focus-within {
+  box-shadow: 6px 6px 0 var(--color-marker);
+  transform: translateY(-2px);
+}
+
+.lesson-header {
+  padding: var(--space-sm) var(--space-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background-color: var(--color-paper);
+  position: relative;
+  z-index: 2;
+  transition: background-color 0.2s ease;
+}
+
+.lesson-header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.lesson-header h2 {
+  margin: 0;
+  border: none;
+  font-size: 1.25rem;
+}
+
+.lesson-badge {
+  display: none;
+  color: var(--color-marker);
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.lesson.is-completed .lesson-badge {
+  display: inline-block;
+}
+
+.lesson-toggle {
+  background: none;
+  border: none;
+  font-family: var(--font-heading);
+  color: var(--color-ink);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: var(--space-xs);
+  transition: transform 0.3s ease;
+}
+
+/* Smooth expansion using grid */
+.lesson-content-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.lesson-content {
+  overflow: hidden;
+}
+
+.lesson-content-inner {
+  padding: var(--space-sm) var(--space-md) var(--space-md) var(--space-md);
+  border-top: 2px solid var(--color-line);
+}
+
+.lesson.is-open .lesson-content-wrapper {
+  grid-template-rows: 1fr;
+}
+
+.lesson.is-open .lesson-toggle {
+  transform: rotate(180deg);
+}
+
+.lesson.is-open .lesson-header {
+  background-color: var(--color-marker-light);
+}
+
+.takeaway {
+  background-color: var(--color-marker-light);
+  padding: var(--space-sm);
+  border-left: 4px solid var(--color-marker);
+  margin: var(--space-md) 0;
+  font-weight: 500;
+}
+
+.takeaway strong {
+  font-family: var(--font-heading);
+}
+
+.exercise {
+  margin-top: var(--space-md);
+  padding: var(--space-md);
+  border: 1px dashed var(--color-ink);
+  border-radius: 4px;
+}
+
+.exercise h3 {
+  margin-top: 0;
+}
+
+/* Checkbox Styling */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.checkbox-container input {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkmark {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--color-ink);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-paper);
+}
+
+.checkbox-container input:checked + .checkmark::after {
+  content: '✓';
+  color: var(--color-marker);
+  font-family: var(--font-heading);
+  font-size: 20px;
+}
+
+.checkbox-container input:focus-visible + .checkmark {
+  outline: 3px solid var(--color-marker);
+  outline-offset: 2px;
+}
+
+/* Pages (Impressum, Datenschutz, 404) */
+.page-content {
+  background-color: var(--color-paper);
+  padding: var(--space-lg);
+  border: 2px solid var(--color-ink);
+  border-radius: 8px;
+  margin-bottom: var(--space-xl);
+}
+
+.page-content h2 {
+  margin-top: var(--space-lg);
+}
+
+/* Screen Reader Only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
